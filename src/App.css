@@ -37,14 +37,13 @@
   }
 }
 
-.vacancyTitle{
-  display: flex;
-  justify-content: center;
-  margin: 0.5rem;
+form {
+  position: relative;
+  width: 70%;
+  text-align: left;
+  margin-left: 42%;
 }
 
-.expectedFee{
-  display: flex;
-  justify-content: center;
-  margin: 0.5rem;
+input, select {
+  margin-top: 1vh;
 }
