@@ -3,13 +3,13 @@ import React from "react";
 function Title(){
     return(
         <>
-            <div class="vacancyTitle">
-                <label for="clientName">Client : </label>
-                <input name="clientName" type="text"></input>
+            <div className="vacancyTitle">
+                <label htmlFor="clientName">Client : </label>
+                <input className="clientName" type="text"></input>
             </div>
-            <div class="vacancyTitle">
-                <label for="vacancyName">Vacancy : </label>
-                <input name="vacancyName" type="text"></input>
+            <div className="vacancyTitle">
+                <label htmlFor="vacancyName">Vacancy : </label>
+                <input className="vacancyName" type="text"></input>
             </div>
         </>
     );
