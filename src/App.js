@@ -2,7 +2,7 @@ import './App.css';
 import Title from './components/VacacancyTitle'
 import CalculateFee from './components/ExpectedFee'
 import Headcount from './components/Headcount'
-
+import ThreeCriteria from './components/threeCriteria/ThreeCriteria'
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
       <Title />
       <CalculateFee />
       <Headcount />
+      <ThreeCriteria />
     </div>
   );
 }
