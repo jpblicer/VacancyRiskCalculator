@@ -3,6 +3,8 @@ import Title from './components/VacacancyTitle'
 import CalculateFee from './components/ExpectedFee'
 import Headcount from './components/Headcount'
 import ThreeCriteria from './components/threeCriteria/ThreeCriteria'
+import AdditionalCriteria from './components/AdditionalCriteria';
+
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
       <CalculateFee />
       <Headcount />
       <ThreeCriteria />
+      <AdditionalCriteria />
     </div>
   );
 }
