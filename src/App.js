@@ -23,7 +23,6 @@ function App() {
       <form>
         <RiskCalculator />
       </form>
-      <h2>This Vacancy has a XX% chance to be filled</h2>
     </div>
   );
 }

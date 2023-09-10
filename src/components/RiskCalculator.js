@@ -1,13 +1,17 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 
 
 
 function RiskCalculator(){
     const [feePercentage, setFeePercentage] = useState('');
-    const [expectedBill, setExpectedBill] = useState('')
-    const totalFee = (expectedBill * (feePercentage/100))
+    const [expectedBill, setExpectedBill] = useState('');    
+    
+    const totalFee = (expectedBill * (feePercentage/100));
+
+
+    const totalRisk = 50;
 
 return(
     <>
@@ -93,7 +97,8 @@ return(
         <div className="additionalCriteria">
             <input className="urgent" type="checkbox" value="10"></input>
             <label htmlFor="urgent">Urgent to Fill</label>
-        </div>    
+        </div>   
+        <h2>This Vacancy has a {totalRisk}% chance to be filled</h2> 
     </>
     );
 };
