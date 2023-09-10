@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 
@@ -7,7 +7,7 @@ import { useState } from "react";
 function RiskCalculator(){
     const [feePercentage, setFeePercentage] = useState('');
     const [expectedBill, setExpectedBill] = useState('')
-
+    const totalFee = (expectedBill * (feePercentage/100))
 
 return(
     <>
@@ -37,6 +37,7 @@ return(
             >
             </input>
         </div>
+        { totalFee !== 0 ? <p>Your expected Placement value is ￥{totalFee}</p> : null }
         <div className="headcount">
             <label htmlFor="headcount">Number of Headcount : </label>
             <select className="headcount" id="headcount-select">

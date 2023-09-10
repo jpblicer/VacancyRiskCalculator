@@ -4,7 +4,9 @@ import RiskCalculator from './components/RiskCalculator';
 //variables and state need to live in this app and go to components to be modified and displayed
 
 function App() {
- let risk = 80;
+
+/*
+  let risk = 80;
  let totalFee = 30;
  if (totalFee < 2000001){
   risk = 0
@@ -13,6 +15,7 @@ function App() {
 }else if(totalFee >= 3000001){
   risk = 10
 }
+*/
 
   return (
     <div className="App">
@@ -20,7 +23,7 @@ function App() {
       <form>
         <RiskCalculator />
       </form>
-      <h2>This Vacancy has a {risk}% chance to be filled</h2>
+      <h2>This Vacancy has a XX% chance to be filled</h2>
     </div>
   );
 }
