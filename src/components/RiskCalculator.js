@@ -1,0 +1,101 @@
+import React from "react";
+import { useState } from "react";
+
+
+
+
+function RiskCalculator(){
+    const [feePercentage, setFeePercentage] = useState('');
+    const [expectedBill, setExpectedBill] = useState('')
+
+
+return(
+    <>
+        <div className="vacancyTitle">
+            <label htmlFor="clientName">Client : </label>
+            <input className="clientName" type="text"></input>
+        </div>
+        <div className="vacancyTitle">
+            <label htmlFor="vacancyName">Vacancy : </label>
+            <input className="vacancyName" type="text"></input>
+        </div>
+        <div className="expectedFee">
+            <label htmlFor={feePercentage}>Fee Percentage : </label>
+            <input 
+                id={feePercentage} 
+                type="number"
+                onChange={event=>setFeePercentage(event.target.value)}
+            >
+            </input>
+        </div>
+        <div className="expectedFee">
+            <label htmlFor={expectedBill}>Expected Billable Revenue : </label>
+            <input 
+                id={expectedBill} 
+                type="number"
+                onChange={event=>setExpectedBill(event.target.value)}
+            >
+            </input>
+        </div>
+        <div className="headcount">
+            <label htmlFor="headcount">Number of Headcount : </label>
+            <select className="headcount" id="headcount-select">
+                <option value="0">1</option>
+                <option value="5">2-3</option>
+                <option value="10">4-7</option>
+                <option value="20">7+</option>
+            </select>
+        </div>
+        <div className="threeCriteria">
+            <label htmlFor="firstCriteria">1st Criteria : </label>
+            <input className="firstCriteria" type="text"></input>
+                <select id="difficulty-select">
+                    <option value="3">Easy</option>
+                    <option value="2">Average</option>
+                    <option value="1">Difficult</option>
+                </select>
+        </div>
+        <div className="threeCriteria">
+            <label htmlFor="secondCriteria">2nd Criteria : </label>
+            <input className="secondCriteria" type="text"></input>
+                <select id="difficulty-select">
+                    <option value="3">Easy</option>
+                    <option value="2">Average</option>
+                    <option value="1">Difficult</option>
+                </select>
+        </div>
+        <div className="threeCriteria">
+            <label htmlFor="thirdCriteria">3rd Criteria : </label>
+            <input className="thirdCriteria" type="text"></input>
+                <select id="difficulty-select">
+                    <option value="3">Easy</option>
+                    <option value="2">Average</option>
+                    <option value="1">Difficult</option>
+                </select>
+        </div>
+        <div className="additionalCriteria">
+            <input className="clientCommunication" type="checkbox" value="10"></input>
+            <label htmlFor="clientCommunication">Client Communicates Well</label>
+        </div>
+        <div className="additionalCriteria">
+            <input className="coreArea" type="checkbox" value="10"></input>
+            <label htmlFor="coreArea">Vacancy is in Core Area</label>
+        </div>
+        <div className="additionalCriteria">
+            <input className="exclusive" type="checkbox" value="5"></input>
+            <label htmlFor="exclusive">Exclusive</label>
+        </div>
+        <div className="additionalCriteria">
+            <input className="priorPlacements" type="checkbox" value="5"></input>
+            <label htmlFor="priorPlacements">Made placements with this client in past</label>
+        </div>
+        <div className="additionalCriteria">
+            <input className="urgent" type="checkbox" value="10"></input>
+            <label htmlFor="urgent">Urgent to Fill</label>
+        </div>    
+    </>
+    );
+};
+
+
+export default RiskCalculator;

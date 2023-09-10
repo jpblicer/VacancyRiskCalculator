@@ -1,26 +1,26 @@
 import './App.css';
-import Title from './components/VacacancyTitle'
-import CalculateFee from './components/ExpectedFee'
-import Headcount from './components/Headcount'
-import ThreeCriteria from './components/threeCriteria/ThreeCriteria'
-import AdditionalCriteria from './components/AdditionalCriteria';
+import RiskCalculator from './components/RiskCalculator';
 
+//variables and state need to live in this app and go to components to be modified and displayed
 
 function App() {
-  const totalRisk = .87 * 100;
-  
-  
+ let risk = 80;
+ let totalFee = 30;
+ if (totalFee < 2000001){
+  risk = 0
+}else if(totalFee >= 2000001 && totalFee < 3000000){
+  risk = 5
+}else if(totalFee >= 3000001){
+  risk = 10
+}
+
   return (
     <div className="App">
       <h1>Contingency Vacancy Risk Calculator</h1>
       <form>
-        <Title />
-        <CalculateFee />
-        <Headcount />
-        <ThreeCriteria />
-        <AdditionalCriteria />
+        <RiskCalculator />
       </form>
-      <h2>This Vacancy has a {totalRisk}% chance to be filled</h2>
+      <h2>This Vacancy has a {risk}% chance to be filled</h2>
     </div>
   );
 }
