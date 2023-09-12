@@ -7,7 +7,8 @@ import { useState } from "react";
 function RiskCalculator(){
     const [feePercentage, setFeePercentage] = useState('');
     const [expectedBill, setExpectedBill] = useState('');    
-    
+    const [selectedHeadcount, setSelectedHeadcount] = useState('0')
+
     const totalFee = (expectedBill * (feePercentage/100));
 
 
@@ -43,13 +44,18 @@ return(
         </div>
         { totalFee !== 0 ? <p>Your expected Placement value is ￥{totalFee}</p> : null }
         <div className="headcount">
-            <label htmlFor="headcount">Number of Headcount : </label>
-            <select className="headcount" id="headcount-select">
-                <option value="0">1</option>
-                <option value="5">2-3</option>
-                <option value="10">4-7</option>
-                <option value="20">7+</option>
-            </select>
+            <label> 
+                Number of Headcount :
+                <select 
+                    value={selectedHeadcount}
+                    onChange={e=> setSelectedHeadcount(e.target.value)}>
+                    <option value="0">1</option>
+                    <option value="5">2-3</option>
+                    <option value="10">4-7</option>
+                    <option value="20">7+</option>
+                </select>
+            </label>
+            {selectedHeadcount}
         </div>
         <div className="threeCriteria">
             <label htmlFor="firstCriteria">1st Criteria : </label>
