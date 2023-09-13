@@ -8,6 +8,9 @@ function RiskCalculator(){
     const [feePercentage, setFeePercentage] = useState('');
     const [expectedBill, setExpectedBill] = useState('');    
     const [selectedHeadcount, setSelectedHeadcount] = useState('0')
+    
+
+    
     const totalFee = (expectedBill * (feePercentage/100));
 
 
@@ -66,6 +69,7 @@ return(
         <div className="threeCriteria">
         <InterviewCriteria criteriaTitle ="3rd Criteria " />
         </div>
+        
         <div className="additionalCriteria">
             <input className="clientCommunication" type="checkbox" value="10"></input>
             <label htmlFor="clientCommunication">Client Communicates Well</label>

@@ -3,10 +3,10 @@ import { useState } from "react";
 
 
 
-function InterviewCriteria({ criteriaTitle, }){
-    const [interviewCriterias, setInterviewCriterias] = useState('1');
+function InterviewCriteria({ criteriaTitle }){
     
-    
+    const [interviewCriterias, setInterviewCriterias] = useState('2');
+
     return(
         <>
             <label> {criteriaTitle} : 
@@ -20,9 +20,11 @@ function InterviewCriteria({ criteriaTitle, }){
                 <option value="2">Average</option>
                 <option value="1">Difficult</option>
                 </select>
-            </label>
+                {interviewCriterias}
+            </label> 
         </>
     )
+    
 };
 
 export default InterviewCriteria;
