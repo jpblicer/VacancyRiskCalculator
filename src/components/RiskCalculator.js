@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-
+import InterviewCriteria from "./InterviewCriteria";
 
 
 
@@ -8,10 +8,12 @@ function RiskCalculator(){
     const [feePercentage, setFeePercentage] = useState('');
     const [expectedBill, setExpectedBill] = useState('');    
     const [selectedHeadcount, setSelectedHeadcount] = useState('0')
-
     const totalFee = (expectedBill * (feePercentage/100));
 
 
+
+
+    
     const totalRisk = 50;
 
 return(
@@ -57,32 +59,12 @@ return(
             </label>
             {selectedHeadcount}
         </div>
+        <InterviewCriteria criteriaTitle ="1st Criteria " />
         <div className="threeCriteria">
-            <label htmlFor="firstCriteria">1st Criteria : </label>
-            <input className="firstCriteria" type="text"></input>
-                <select id="difficulty-select">
-                    <option value="3">Easy</option>
-                    <option value="2">Average</option>
-                    <option value="1">Difficult</option>
-                </select>
+        <InterviewCriteria criteriaTitle ="2nd Criteria " />
         </div>
         <div className="threeCriteria">
-            <label htmlFor="secondCriteria">2nd Criteria : </label>
-            <input className="secondCriteria" type="text"></input>
-                <select id="difficulty-select">
-                    <option value="3">Easy</option>
-                    <option value="2">Average</option>
-                    <option value="1">Difficult</option>
-                </select>
-        </div>
-        <div className="threeCriteria">
-            <label htmlFor="thirdCriteria">3rd Criteria : </label>
-            <input className="thirdCriteria" type="text"></input>
-                <select id="difficulty-select">
-                    <option value="3">Easy</option>
-                    <option value="2">Average</option>
-                    <option value="1">Difficult</option>
-                </select>
+        <InterviewCriteria criteriaTitle ="3rd Criteria " />
         </div>
         <div className="additionalCriteria">
             <input className="clientCommunication" type="checkbox" value="10"></input>
