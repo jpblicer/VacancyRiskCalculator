@@ -10,15 +10,17 @@ function RiskCalculator(){
     const [interviewCriteriaOne, setInterviewCriteriasOne] = useState('2');
     const [interviewCriteriaTwo, setInterviewCriteriasTwo] = useState('2');
     const [interviewCriteriaThree, setInterviewCriteriasThree] = useState('2');
+    const [clientCommunication, setClientCommunication] = useState(false)
     const [coreArea, setCoreArea] = useState(false);
-
    
     const totalFee = (expectedBill * (feePercentage/100));
     const threeCriteriaScore = ((Number(interviewCriteriaOne) + Number(interviewCriteriaTwo) + Number(interviewCriteriaThree)) / 3);
 
 
     
-    let totalRisk = 10 +(coreArea ? 10 : 0)
+    const totalRisk = 10
+         +(clientCommunication ? 10 : 0) 
+         +(coreArea ? 10 : 0);
 
 return(
     <form>
@@ -109,8 +111,14 @@ return(
             </label> 
         </div>
         {threeCriteriaScore}
+        
+        
         <div className="additionalCriteria">
-            <input className="clientCommunication" type="checkbox" value="10"></input>
+            <input 
+            className="clientCommunication" 
+            type="checkbox" 
+            checked={clientCommunication}
+            onChange={e=>setClientCommunication(!clientCommunication)} />
             <label htmlFor="clientCommunication">Client Communicates Well</label>
         </div>
         
@@ -120,11 +128,11 @@ return(
             className="coreArea" 
             type="checkbox" 
             checked={coreArea}
-            onChange={e=>setCoreArea(!coreArea)}
-            >
-            </input>
+            onChange={e=>setCoreArea(!coreArea)} />
             <label htmlFor="coreArea">Vacancy is in Core Area</label>
         </div>
+
+
         <div className="additionalCriteria">
             <input className="exclusive" type="checkbox" value="5"></input>
             <label htmlFor="exclusive">Exclusive</label>
