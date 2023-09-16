@@ -8,19 +8,19 @@ function RiskCalculator(){
     const [feePercentage, setFeePercentage] = useState('');
     const [expectedBill, setExpectedBill] = useState('');    
     const [selectedHeadcount, setSelectedHeadcount] = useState('0')
-    
+    const [interviewCriteriaOne, setInterviewCriteriasOne] = useState('2');
+    const [interviewCriteriaTwo, setInterviewCriteriasTwo] = useState('2');
+    const [interviewCriteriaThree, setInterviewCriteriasThree] = useState('2');
 
-    
     const totalFee = (expectedBill * (feePercentage/100));
-
-
+    const threeCriteriaScore = ((Number(interviewCriteriaOne) + Number(interviewCriteriaTwo) + Number(interviewCriteriaThree)) / 3)
 
 
     
     const totalRisk = 50;
 
 return(
-    <>
+    <form>
         <div className="vacancyTitle">
             <label htmlFor="clientName">Client : </label>
             <input className="clientName" type="text"></input>
@@ -61,15 +61,53 @@ return(
                 </select>
             </label>
             {selectedHeadcount}
-        </div>
-        <InterviewCriteria criteriaTitle ="1st Criteria " />
+        </div>        
         <div className="threeCriteria">
-        <InterviewCriteria criteriaTitle ="2nd Criteria " />
+            <label> 1st Criteria : 
+            <input 
+            type="text">
+            </input>
+            <select
+                value={interviewCriteriaOne}
+                onChange={e=> setInterviewCriteriasOne(e.target.value)}>
+                <option value="3">Easy</option>
+                <option value="2">Average</option>
+                <option value="1">Difficult</option>
+                </select>
+                {interviewCriteriaOne}
+            </label>
         </div>
         <div className="threeCriteria">
-        <InterviewCriteria criteriaTitle ="3rd Criteria " />
+            <label> 2nd Criteria : 
+            <input 
+            type="text">
+            </input>
+            <select
+                value={interviewCriteriaTwo}
+                onChange={e=> setInterviewCriteriasTwo(e.target.value)}>
+                <option value="3">Easy</option>
+                <option value="2">Average</option>
+                <option value="1">Difficult</option>
+                </select>
+                {interviewCriteriaTwo}
+            </label>
         </div>
-        
+        <div className="threeCriteria">
+            <label> 3rd Criteria : 
+            <input 
+            type="text">
+            </input>
+            <select
+                value={interviewCriteriaThree}
+                onChange={e=> setInterviewCriteriasThree(e.target.value)}>
+                <option value="3">Easy</option>
+                <option value="2">Average</option>
+                <option value="1">Difficult</option>
+                </select>
+                {interviewCriteriaThree}
+            </label> 
+        </div>
+        {threeCriteriaScore}
         <div className="additionalCriteria">
             <input className="clientCommunication" type="checkbox" value="10"></input>
             <label htmlFor="clientCommunication">Client Communicates Well</label>
@@ -91,7 +129,7 @@ return(
             <label htmlFor="urgent">Urgent to Fill</label>
         </div>   
         <h2>This Vacancy has a {totalRisk}% chance to be filled</h2> 
-    </>
+        </form>
     );
 };
 

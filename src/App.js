@@ -20,9 +20,7 @@ function App() {
   return (
     <div className="App">
       <h1>Contingency Vacancy Risk Calculator</h1>
-      <form>
         <RiskCalculator />
-      </form>
     </div>
   );
 }
