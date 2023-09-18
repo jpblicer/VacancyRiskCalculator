@@ -15,17 +15,25 @@ function RiskCalculator(){
     const [exclusive, setExclusive] = useState(false);
     const [priorPlacements, setPriorPlacements] = useState(false);
     const [urgent, setUrgent] = useState(false);
-
-
-
+    
     const totalFee = (expectedBill * (feePercentage/100));
+
+    
+    
+    let totalFeeRisk;
+        
+    if(totalFee < 2000001)
+        totalFeeRisk = 0;
+    else if((totalFee >= 2000001) && (totalFee < 3000000)) 
+        totalFeeRisk = 5; 
+    else if(totalFee >= 3000000)
+        totalFeeRisk = 10;
     
 
     const threeCriteriaScore = ((Number(interviewCriteriaOne) + Number(interviewCriteriaTwo) + Number(interviewCriteriaThree)) / 3);
-
-
     
     const totalRisk = 0
+        +(totalFeeRisk)
         +(clientCommunication ? 10 : 0) 
         +(coreArea ? 10 : 0)
         +(exclusive ? 5 : 0)
