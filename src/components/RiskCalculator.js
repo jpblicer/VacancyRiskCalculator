@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 
 
-
 function RiskCalculator(){
     const [feePercentage, setFeePercentage] = useState('');
     const [expectedBill, setExpectedBill] = useState('');    
@@ -18,10 +17,7 @@ function RiskCalculator(){
     
     const totalFee = (expectedBill * (feePercentage/100));
 
-    
-    
     let totalFeeRisk;
-        
     if(totalFee < 2000001)
         totalFeeRisk = 0;
     else if((totalFee >= 2000001) && (totalFee < 3000000)) 
@@ -29,12 +25,20 @@ function RiskCalculator(){
     else if(totalFee >= 3000000)
         totalFeeRisk = 10;
     
-
     const threeCriteriaScore = ((Number(interviewCriteriaOne) + Number(interviewCriteriaTwo) + Number(interviewCriteriaThree)) / 3);
     
+    let threeCriteriaScoreRisk;
+    if(threeCriteriaScore <= 1)
+        threeCriteriaScoreRisk = 10;
+    else if((threeCriteriaScore >= 1.001) && (threeCriteriaScore <= 2))
+        threeCriteriaScoreRisk = 20;
+    else if(threeCriteriaScore > 2)
+        threeCriteriaScoreRisk = 30;
+  
     const totalRisk = 0
         +(totalFeeRisk)
         +(Number(selectedHeadcount))
+        +(threeCriteriaScoreRisk)
         +(clientCommunication ? 10 : 0) 
         +(coreArea ? 10 : 0)
         +(exclusive ? 5 : 0)
@@ -95,7 +99,6 @@ return(
                 <option value="2">Average</option>
                 <option value="1">Difficult</option>
                 </select>
-                {interviewCriteriaOne}
             </label>
         </div>
         <div className="threeCriteria">
@@ -110,7 +113,6 @@ return(
                 <option value="2">Average</option>
                 <option value="1">Difficult</option>
                 </select>
-                {interviewCriteriaTwo}
             </label>
         </div>
         <div className="threeCriteria">
@@ -125,10 +127,8 @@ return(
                 <option value="2">Average</option>
                 <option value="1">Difficult</option>
                 </select>
-                {interviewCriteriaThree}
             </label> 
         </div>
-        {threeCriteriaScore}
         <div className="additionalCriteria">
             <input 
             className="clientCommunication" 
