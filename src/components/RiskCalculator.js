@@ -34,6 +34,7 @@ function RiskCalculator(){
     
     const totalRisk = 0
         +(totalFeeRisk)
+        +(Number(selectedHeadcount))
         +(clientCommunication ? 10 : 0) 
         +(coreArea ? 10 : 0)
         +(exclusive ? 5 : 0)
@@ -81,7 +82,6 @@ return(
                     <option value="20">7+</option>
                 </select>
             </label>
-            {selectedHeadcount}
         </div>        
         <div className="threeCriteria">
             <label> 1st Criteria : 
