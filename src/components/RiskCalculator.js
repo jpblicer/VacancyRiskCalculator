@@ -12,15 +12,25 @@ function RiskCalculator(){
     const [interviewCriteriaThree, setInterviewCriteriasThree] = useState('2');
     const [clientCommunication, setClientCommunication] = useState(false)
     const [coreArea, setCoreArea] = useState(false);
-   
+    const [exclusive, setExclusive] = useState(false);
+    const [priorPlacements, setPriorPlacements] = useState(false);
+    const [urgent, setUrgent] = useState(false);
+
+
+
     const totalFee = (expectedBill * (feePercentage/100));
+    
+
     const threeCriteriaScore = ((Number(interviewCriteriaOne) + Number(interviewCriteriaTwo) + Number(interviewCriteriaThree)) / 3);
 
 
     
-    const totalRisk = 10
-         +(clientCommunication ? 10 : 0) 
-         +(coreArea ? 10 : 0);
+    const totalRisk = 0
+        +(clientCommunication ? 10 : 0) 
+        +(coreArea ? 10 : 0)
+        +(exclusive ? 5 : 0)
+        +(priorPlacements ? 5 : 0)
+        +(urgent ? 10 : 0);
 
 return(
     <form>
@@ -111,8 +121,6 @@ return(
             </label> 
         </div>
         {threeCriteriaScore}
-        
-        
         <div className="additionalCriteria">
             <input 
             className="clientCommunication" 
@@ -122,7 +130,6 @@ return(
             <label htmlFor="clientCommunication">Client Communicates Well</label>
         </div>
         
-        
         <div className="additionalCriteria">
             <input 
             className="coreArea" 
@@ -131,20 +138,30 @@ return(
             onChange={e=>setCoreArea(!coreArea)} />
             <label htmlFor="coreArea">Vacancy is in Core Area</label>
         </div>
-
-
         <div className="additionalCriteria">
-            <input className="exclusive" type="checkbox" value="5"></input>
+            <input 
+            className="exclusive" 
+            type="checkbox" 
+            checked={exclusive}
+            onChange={e=>setExclusive(!exclusive)} />
             <label htmlFor="exclusive">Exclusive</label>
         </div>
         <div className="additionalCriteria">
-            <input className="priorPlacements" type="checkbox" value="5"></input>
-            <label htmlFor="priorPlacements">Made placements with this client in past</label>
+            <input 
+            className="priorPlacements" 
+            type="checkbox" 
+            checked={priorPlacements}
+            onChange={e=>setPriorPlacements(!priorPlacements)} />
+            <label htmlFor="priorPlacements">Prior Placements made with Client</label>
         </div>
         <div className="additionalCriteria">
-            <input className="urgent" type="checkbox" value="10"></input>
+            <input 
+            className="urgent" 
+            type="checkbox" 
+            checked={urgent}
+            onChange={e=>setUrgent(!urgent)} />
             <label htmlFor="urgent">Urgent to Fill</label>
-        </div>   
+        </div>
         <h2>This Vacancy has a {totalRisk}% chance to be filled</h2> 
         </form>
     );
